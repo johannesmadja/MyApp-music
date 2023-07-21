@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+.principal {
+  height: 8rem;
+  margin: 0 4.5rem;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.content {
+  margin-top: 1rem;
+}
+
+.music .card, .music .pagination {
+  margin-top: 0.5rem;
+}
+.music .btn {
+  display: inline-block;
+  margin: 0 0.6rem;
+}
+
+.glyph-icon {
+  height: 0.75rem;
+  display: inline-block;
+  margin: 0.25rem;
+}
+
+
+/* Boutton d'affichage de l'album */
+
+.button-album-display {
+  width: fit-content;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  background-color: #3daa87;
+  border-color: #0d6efd ;
+  border-radius: 5px;
+  color: aliceblue;
+
+  transition: all 1s;
+}
+
+
+.button-album-display:hover {
+  background-color: aliceblue;
+  color: #0d6efd;
+}
+
+/*# sourceMappingURL=styles.css.map */
