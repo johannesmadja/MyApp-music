@@ -15,7 +15,7 @@
 }
 .music .btn {
   display: inline-block;
-  margin: 0 0.6rem;
+  margin: 0 0.4rem 1rem 0.4rem;
 }
 
 .glyph-icon {
@@ -25,24 +25,34 @@
 }
 
 
+/* Couleurs des tags */
+a.tag-contour {
+  background-color: #3baabd;
+  border-color: #3baabd;
+  padding: 0.3rem .1rem;
+  width: fit-content;
+}
+
+
 /* Boutton d'affichage de l'album */
 
 .button-album-display {
   width: fit-content;
+  padding: .3rem .7rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
-  background-color: #0b2cea;
-  border-color: #0b2cea ;
+  background-color: rgb(32, 31, 31);
+  border-color: rgb(32, 31, 31) ;
   border-radius: 5px;
-  color: aliceblue;
+  color: white;
 
   transition: all 1s;
 }
 
 
 .button-album-display:hover {
-  background-color: #5e84bc;
-  color: aliceblue;
+  background-color: black;
+  color: white;
 }
 
 /*# sourceMappingURL=styles.css.map */
