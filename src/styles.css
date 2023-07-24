@@ -31,8 +31,8 @@
   width: fit-content;
   margin-left: 1rem;
   margin-bottom: 1rem;
-  background-color: #3daa87;
-  border-color: #0d6efd ;
+  background-color: #0b2cea;
+  border-color: #0b2cea ;
   border-radius: 5px;
   color: aliceblue;
 
@@ -41,8 +41,8 @@
 
 
 .button-album-display:hover {
-  background-color: aliceblue;
-  color: #0d6efd;
+  background-color: #5e84bc;
+  color: aliceblue;
 }
 
 /*# sourceMappingURL=styles.css.map */

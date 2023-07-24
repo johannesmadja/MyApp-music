@@ -276,7 +276,7 @@ export const ALBUM_LISTS : List[]  = [
     }
   ];
 
-  export class StatusHideAlbum{
-      id !: string;
-      visibility !: boolean;
-  }
+export class StatusHideAlbum{
+    id !: string;
+    visibility !: boolean;
+}

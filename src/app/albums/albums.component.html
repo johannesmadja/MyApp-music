@@ -3,7 +3,7 @@
 
 <div class="row content">
     <div class="col-sm-4 video">
-        <app-album-details [album]="selectedAlbum"></app-album-details>
+        <app-album-details [album]="selectedAlbum" (onPlay) = "playParent($event)"></app-album-details>
     </div>
 
     <div class="col-sm-8 music">
@@ -14,10 +14,10 @@
                 {{album.ref}}
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{album.title}}</h5>
+                <h5 class="card-title">{{album.title}} <span class="btn btn-outline-dark" *ngIf = "album.status ==='on'">{{tag}}</span></h5>
                 <p class="card-text">{{album.description}}</p>
                 <a class="btn btn-outline-primary" href="#" role="button">fr</a>
-                <a class="btn btn-outline-dark" href="#" role="button" *ngFor="let tag of album.tags">{{tag}}</a>
+                <a class="btn btn-outline-dark" href="#" role="button" *ngFor = "let tag of album.tags">{{tag}}</a>
 
                 <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
                 <small>{{album.like}}</small>
