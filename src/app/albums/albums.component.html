@@ -3,7 +3,7 @@
 
 <div class="row content">
     <div class="col-sm-4 video">
-        <app-search></app-search>
+        <app-search (ngModuleChanges) = "onChangesEmit($event)"></app-search>
         <app-album-details [album]="selectedAlbum" (onPlay) = "playParent($event)"></app-album-details>
     </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { AlbumService } from "../album.service";
 import {  Album } from "../album";
@@ -9,16 +9,19 @@ import {  Album } from "../album";
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit{
+  @Output() albumListFilter = new EventEmitter<Array<Album>>
   word !: string;
-  constructor(
-  ) {}
+  
+  constructor( private AlbumService : AlbumService) {}
 
   ngOnInit(): void {}
 
   onSubmit(form : NgForm) : void {
-    // récupération des données du formulaire
-    console.log(form.value["word"]);
-    console.log(this.word);
     
   }
+
+  ngModelChange() {
+    this.albumListFilter.emit(this.AlbumService.search(this.word)); 
+  }
+
 }

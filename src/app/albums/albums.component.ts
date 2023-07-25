@@ -39,5 +39,7 @@ export class AlbumsComponent implements OnInit{
     this.status = $event.id;
   }
 
- 
+  onChangesEmit($event : any) {
+    this.albums = $event;
+  }
 }

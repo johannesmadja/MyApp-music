@@ -31,6 +31,11 @@ export class AlbumService {
     return this._albumList.length
   }
 
+
+  search(searchValue : string) : Album[] | undefined{
+    return this._albums.filter(albumcurrent => albumcurrent.title.toLowerCase().includes(searchValue.toLowerCase()));
+  }
+
   /** 
   paginate(start : number, end : number) : Album[] {
     this.albumDuration.sort(function (a:number, b:number) : number { return b - a});
