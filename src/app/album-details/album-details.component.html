@@ -1,12 +1,37 @@
 <!-- <p>album-details works!</p> -->
 <div class="card">
-    <img class="card-img-top"  src = "{{currentSrc}}" alt = "Group Music">
-    <div class="card-body">
-        <h5 class="card-title">Dark</h5>
-        <p class="card-text">Punk electro</p>
-        <a href="#" class="btn btn-primary" (click) = "play(album)">Play >> </a>
+    <img class="card-img-top"  src = "{{currentSrc}}" alt = "Group Music" *ngIf = "currentSrc">
+    <img class="card-img-top"  src = "../../assets/images/default_image.jpg" alt = "Group Music" *ngIf = "! currentSrc">
+    <div class="card-body" *ngIf = "album">
+        <h5 class="card-title">{{album.title}}</h5>
+        <p class="card-text">{{album.name}}</p>
+        <button href="#" class="btn btn-primary" (click) = "play(album)">Play >> </button>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor = "let list of albumList">{{list}}</li>
-    </ul>
+   
+    <div *ngIf = "albumList; then ifBlock; else elseBlock" ></div>
+    <ng-template #ifBlock>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor = "let list of albumList">{{list}}</li>
+        </ul>
+    </ng-template>
+   
+    <ng-template #elseBlock>
+        <ul class="list-group">
+            <li class="list-group-item">Pas de chanson dans cet album</li>
+        </ul>
+    </ng-template>
+
+    
+     <!-- Si nous avons des sons dans la playlist -->
+    <!-- <ng-template [ngIf] = "albumList; else nolist"> -->
+       <!-- <ul class="list-group">
+            <li class="list-group-item" *ngFor = "let list of albumList">{{list}}</li>
+        </ul> -->
+    <!-- </ng-template> -->
+     <!-- Au cas contraire -->
+    <!-- <ng-template #nolist> -->
+        <!-- <ul class="list-group">
+            <li class="list-group-item" *ngFor = "let list of albumList">Pas de chanson pour cet album</li>
+        </ul> -->
+    <!-- </ng-template> -->
 </div>

@@ -6,53 +6,38 @@ import { Album, List } from "./album";
   providedIn: 'root'
 })
 export class AlbumService {
-  singlealbum !: Album;
-  albumList !: string[]; 
-  albumDuration : number[] = [600,480,360,840,840,360,240,240,240,240];
-  newAlbumCollection : Album[] = [];
+  albumDuration !: Album[];
   ALBUMSCOPY !: Album[];
+  
+  private _albums : Album[] = ALBUMS;
+  private _albumList : List[] = ALBUM_LISTS;
 
   constructor() { }
 
   getAlbums() : Album[] { // Retourne tous les albums
+    this.albumDuration = this._albums.sort(function (a : Album , b : Album)  { return b.duration - a.duration});
+    return this.albumDuration;
+  }
+
+  getAlbum(id : string) : Album | undefined  { // Retourne un album
+    return this._albums.find(album => album.id === id);
+  }
+
+  getAlbumList(id : string) : string[] | undefined { // Retourne la liste d'un album
+    return this._albumList.find((listelment) => listelment.id === id)?.list;
+  }
+
+  count() : number {
+    return this._albumList.length
+  }
+
+  /** 
+  paginate(start : number, end : number) : Album[] {
     this.albumDuration.sort(function (a:number, b:number) : number { return b - a});
     this.ALBUMSCOPY = ALBUMS.slice();
 
-    for (let i = 0; i < this.albumDuration.length; i++) {
-      for (let y = 0; y < this.ALBUMSCOPY.length; y++) {
-        if (this.albumDuration[i] === this.ALBUMSCOPY[y].duration) {
-          this.newAlbumCollection.push(this.ALBUMSCOPY[y]);
-          this.ALBUMSCOPY.splice(y, 1);
-        }
-      }
-    }
-    return this.newAlbumCollection;
-    // return console.log('fvg') ,console.log(ALBUMS);
   }
+  */
 
-  getAlbum(id : string) : Album  { // Retourne un album
-    for (const album of ALBUMS) {
-      if (album.id === id) {
-        this.singlealbum =  album;
-      }
-    }
-    return this.singlealbum;
-  }
-
-  getAlbumList(id : string) : string[]  { // Retourne la liste d'un album
-    for (const list of ALBUM_LISTS) {
-      if (list.id === id) {
-        this.albumList = list.list;
-      }
-    }
-    return this.albumList;
-  }
-
-  // paginate(start : number, end : number) : Album[] {
-  //   this.albumDuration.sort(function (a:number, b:number) : number { return b - a});
-  //   this.ALBUMSCOPY = ALBUMS.slice();
-
-
-
-  // }
+  
 }
