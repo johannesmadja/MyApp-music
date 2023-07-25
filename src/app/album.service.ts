@@ -8,7 +8,7 @@ import { Album, List } from "./album";
 export class AlbumService {
   singlealbum !: Album;
   albumList !: string[]; 
-  albumDuration : number[] = [600,480,360,840,840,360,240,240,240,240]
+  albumDuration : number[] = [600,480,360,840,840,360,240,240,240,240];
   newAlbumCollection : Album[] = [];
 
   constructor() { }
