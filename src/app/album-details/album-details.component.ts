@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Album, cover } from "../album";
 import { ALBUM_LISTS } from "../mock-albums";
+import { AlbumService } from '../album.service';
 
 
 @Component({
@@ -62,14 +63,15 @@ export class AlbumDetailsComponent implements OnInit {
   ]
 
 
-  constructor() {}
+  constructor(private AlbumService : AlbumService) {}
+
   ngOnInit(): void {
     console.log(this.album);
   }
   
   ngOnChanges()  {
     if (this.album !== undefined) {
-      this.albumList = ALBUM_LISTS.find((listelment) => listelment.id === this.album.id)?.list;
+      this.albumList = this.AlbumService.getAlbumList(this.album.id); //ALBUM_LISTS.find((listelment) => listelment.id === this.album.id)?.list;
 
       this.changeCover();
     }

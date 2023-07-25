@@ -17,14 +17,14 @@
                 <h5 class="card-title">{{album.title}} <span class="btn btn-outline-dark" *ngIf = "album.status ==='on'">{{tag}}</span></h5>
                 <p class="card-text">{{album.description}}</p>
                 <a class="btn btn-outline-primary" href="#" role="button">fr</a>
-                <a class="btn btn-outline-dark" href="#" role="button" *ngFor = "let tag of album.tags">{{tag}}</a>
-
+                <a class="btn btn-outline-dark tag-contour" href="#" role="button" *ngFor = "let tag of album.tags">{{tag}}</a>
+                <br>
                 <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
                 <small>{{album.like}}</small>
                 <img class="glyph-icon" src="./assets/svg/si-glyph-timer.svg" />
                 <small>{{album.duration}}</small>
+                <button type="button" (click)="onSelect(album)" class="button-album-display">Details</button>
             </div>
-            <button type="button" (click)="onSelect(album)" class="button-album-display">Afficher l'album</button>
         </div><!-- .card -->
     </div>
 </div> <!-- video -->

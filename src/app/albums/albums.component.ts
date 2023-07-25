@@ -27,6 +27,8 @@ export class AlbumsComponent implements OnInit{
     // this.AlbumService.getAlbums();
       this.albums = this.AlbumService.getAlbums();
       console.log(this.albums);
+      console.log(this.count());
+      
       
   }
   
@@ -42,5 +44,9 @@ export class AlbumsComponent implements OnInit{
         currentAlbum.status = "off";
       }
     }
+  }
+
+  count() : number {
+    return ALBUMS.length
   }
 }
