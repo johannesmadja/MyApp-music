@@ -24,36 +24,38 @@
   margin: 0.25rem;
 }
 
+body {
+  font-family: Poppins !important;
+}
 
-/* Couleurs des tags */
+/* Titre 
+
+/* Couleurs des tags 
 a.tag-contour {
   background-color: #3baabd;
   border-color: #3baabd;
-  padding: 0.3rem .1rem;
+  padding-block: .1rem;
   width: fit-content;
-}
-
-
-/* Boutton d'affichage de l'album 
-
-.button-album-display {
-  width: fit-content;
-  padding: .3rem .7rem;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
-  background-color: rgb(32, 31, 31);
-  border-color: rgb(32, 31, 31) ; 
-  border-radius: 5px;
-  color: white;
-
-  transition: all 1s;
-}
-
-
-.button-album-display:hover {
-  background-color: black;
-  color: white;
 }
 */
+
+/* La nav principale (en-tête) 
+nav.nav-principal {
+  background-color: orange;
+}
+
+ ligne d'en-tête des albums 
+div.card-header {
+  background-image: linear-gradient(to right, rgb(214, 214, 223)30%, rgb(151, 149, 149));
+}
+*/
+
+/* Les blocks de chaque album gérérer 
+div.album-block {
+  margin-block: 3rem 2rem;
+  box-shadow: 0px 0px 5px;
+}
+*/
+
 
 /*# sourceMappingURL=styles.css.map */

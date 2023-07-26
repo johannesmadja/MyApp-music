@@ -24,11 +24,10 @@ export class AlbumsComponent implements OnInit{
   constructor(private AlbumService : AlbumService) {}
 
   ngOnInit() {
-    this.albums = this.AlbumService.getAlbums();
-    
-    // this.AlbumService.getAlbums();
-      console.log(this.albums);
-      console.log(this.AlbumService.count());   
+    this.albums = this.AlbumService
+                                  .order((a : Album, b : Album) => b.duration - a.duration)
+                                  .limit(0, this.AlbumService.count()) 
+                                  .getAlbums();   
   }
   
   onSelect(album : Album) {
@@ -39,7 +38,7 @@ export class AlbumsComponent implements OnInit{
     this.status = $event.id;
   }
 
-  onChangesEmit($event : any) {
-    this.albums = $event;
+  albumFilter(album : Album[]) {
+    this.albums = album;
   }
 }

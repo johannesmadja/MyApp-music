@@ -1,0 +1,16 @@
+<div class="card shadow-lg mb-4" *ngIf = "album">
+    <div class="card-header">
+         {{album.ref}} 
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><a class = "text-info"> {{album.title}} </a> </h5>
+        <p>Name : {{album.name}}</p>
+        <p class="card-text">{{album.description}}</p>
+        <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
+        <div><small>{{album.like}}</small></div>
+        <img class="glyph-icon" src="./assets/svg/si-glyph-timer.svg" />
+        <div><small>{{album.duration}}</small></div>
+        <a class="btn btn-outline-dark tag-contour bg-info border border-info" href="#" role="button" *ngFor = "let tag of album.tags">{{tag}}</a>
+        
+    </div>
+</div> <!--card-->

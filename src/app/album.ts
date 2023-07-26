@@ -17,10 +17,7 @@ export class List {
     id !: string;
     list !: string[];
 }
-
-
-export class cover {
-      id !: string;
-      src !: string;
-}
   
+export interface SortAlbumCallback {
+    (a : Album, b : Album) : number;
+}

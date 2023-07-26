@@ -1,6 +1,6 @@
 <div class="container principal">
-  <nav class="navbar navbar-expand-lg navbar-light mb-1" >
-    <a class="navbar-brand" href="#">{{ title }}</a>
+  <nav class="navbar navbar-expand-lg navbar-light mb-1 bg-dark-subtle shadow rounded" >
+    <a class="navbar-brand ms-3" routerLink = "">{{ title }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,19 +8,18 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home
+          <a class="nav-link" routerLink = "/">Home
             <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Se connecter
+          <a class="nav-link"  routerLink = "/login" routerLinkActive = "active" >Se connecter
             <span class="sr-only">(current)</span>
           </a>
         </li>
       </ul>
     </div>
   </nav>
-  
-  <app-albums></app-albums> 
 
+  <router-outlet></router-outlet>
 </div>

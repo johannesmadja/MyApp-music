@@ -42,3 +42,35 @@ Il est préferable de mettre les valeurs retourner à l'intérieures de mon serv
 - git log (pour voir toutes les versions)
 - git push  origin master
 - git push origin --tags 
+
+```ts
+
+interface SortAlbumCallback {
+  (a : number, b : number) : number;
+}
+
+order(callback : SortAlbumCallback) {
+  this.album.sort(callback); 
+}
+
+```
+
+# Les contours du *ngFor
+Lorsque nous utilisons la directive *ngFor, Angular crée un ensemble de variable locale pour chaque itération. Les variables : 
+- **index** : variable qui stocke l'indice de l'élément actuel
+- **first** : variable booléenne qui indique si l'élément est le premier dans la liste
+- **last**  : variable booléenne qui indique si l'élément est le dernier dans la liste
+- **even**  : variable booléenne qui indique si l'indice de l'élément est pair
+- **odd**   : variable booléenne qui indique si l'indice de l'élément est impair
+
+# Formulaires Angular
+Un formulaire avec  Angular se gère suivant deux approches : les réactifs (en : reactive forms) et les modèles (en : template-driven forms)
+
+```js
+
+searchV2(word : string) : Album[] {
+  let re = new RegExp(word.trim(), "g");
+  return this._albums.filter(album => album.title.match(re));
+}
+
+```
