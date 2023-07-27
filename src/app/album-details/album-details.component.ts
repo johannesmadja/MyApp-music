@@ -17,7 +17,10 @@ export class AlbumDetailsComponent implements OnInit {
   @Input() album !: Album | undefined;
   @Output() onPlay : EventEmitter<Album> = new EventEmitter();
   albumList !: string[] | undefined;
-  currentSrc !: string | undefined;
+  indexRandom : number[] = [];
+  valueIndex !: number;
+  randomNumber !: number;
+
 
 
   constructor(private AlbumService : AlbumService) {}
@@ -29,19 +32,33 @@ export class AlbumDetailsComponent implements OnInit {
   ngOnChanges()  {
     if (this.album) {
       this.albumList = this.AlbumService.getAlbumList(this.album.id); 
-      this.changeCover(this.album.id);
-    }
-  }
-
-  changeCover(id : string) : void {
-    if (this.album) {
-      this.currentSrc = ALBUMS.find(cov => cov.id === id)?.url;
     }
   }
 
   play (album : Album) {
     this.onPlay.emit(album);
   }
- 
 
+  randomList() {
+    if (this.album && this.albumList) {  
+      this.indexRandom = [];
+      let newAlbumList : string[] = [];
+      while (this.indexRandom.length < this.albumList.length) {
+        this.randomNumber = Math.floor(Math.random() * this.albumList.length);
+        if (this.indexRandom.includes(this.randomNumber)) {
+          this.indexRandom;
+        } else {
+          this.indexRandom.push(this.randomNumber)
+        }
+      }
+      
+    for (let i = 0; i < this.indexRandom.length; i++) {
+      this.valueIndex = this.indexRandom[i]
+      newAlbumList[i] = this.albumList[this.valueIndex]
+    }
+
+    this.albumList = newAlbumList;   
+    }
+  }
+ 
 }

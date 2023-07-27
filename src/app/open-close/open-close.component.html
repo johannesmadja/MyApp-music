@@ -1,0 +1,7 @@
+<div [@openClose]>
+    <button (click) = 'toggle()' type = "button"> Toggle Open/Close</button>
+    
+    <div class="open-close-container"> <!--[@openClose] = "isOpen ? 'open' : 'close'"-->
+        <p>La boîte est {{ isOpen ? 'Ouverte' : 'Fermée'}} </p>
+    </div>
+</div>

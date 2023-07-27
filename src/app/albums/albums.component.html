@@ -1,5 +1,5 @@
 
-<div class="row content">
+<div class="row content" [@fadeInAnimation]>
     <div class="col-sm-4 video">
         <app-search (albumListFilter) = "albumFilter($event)"></app-search>
         <app-album-details [album]="selectedAlbum" (onPlay) = "playParent($event)"></app-album-details>

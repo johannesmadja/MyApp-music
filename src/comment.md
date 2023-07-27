@@ -74,3 +74,33 @@ searchV2(word : string) : Album[] {
 }
 
 ```
+
+## LES ROUTES 
+- Première chose pour définir les routes : (Les options)
+  * Path : Définit la route pour appeler un composant,
+  * component : Définit le composant à charger si la route correspond
+  * redirectTo : Redirige vers une route
+  * pathMatch : Est-ce que la route doit correspondre complètement ou partiellement [full / prefix]
+
+
+```ts
+const albumsRoutes : Routes = [
+  {path : '', redirectTo :"/albums", pathMatch : "full" },  // Chemin vers la page d'accueil
+  {path : "albums", component : AlbumsComponent}, // Chemin vers la page des albums
+  {path : "Login", component : LoginComponent}, // Chemin vers la page de connexion
+  {path : "albums/:id", component : AlbumsDescriptonComponent}, // Chemin vers la page de description (:id) est le paramètre dynamique ou variable au niveau de la route
+]
+  
+```
+
+```js
+
+originTab = []
+copyTab = []
+indexTab = [1, 2, 6, 7]
+
+if(indexTab[i] !== j) {
+  originTab.splice(j, 1, copyTab[i])
+  tab.push()
+}
+```

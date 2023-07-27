@@ -1,17 +1,18 @@
 <!-- <p>album-details works!</p> -->
 <div class="card">
-    <img class="card-img-top"  src = "{{currentSrc}}" alt = "Group Music" *ngIf = "currentSrc">
-    <img class="card-img-top"  src = "../../assets/images/default_image.jpg" alt = "Group Music" *ngIf = "! currentSrc">
+    <img class="card-img-top"  src = "{{album.url}}" alt = "Group Music" *ngIf = "album">
+    <img class="card-img-top"  src = "../../assets/images/default_image.jpg" alt = "Group Music" *ngIf = "! album">
     <div class="card-body" *ngIf = "album">
         <h5 class="card-title">{{album.title}}</h5>
         <p class="card-text">{{album.name}}</p>
-        <button href="#" class="btn btn-primary" (click) = "play(album)">Play >> </button>
+        <button href="#" class="btn btn-primary me-3" (click) = "play(album)">Play <i class = "fas fa-play-circle"></i></button> 
+        <button class="btn btn-primary"  (click) = "randomList()" >Aléatoire <i class = "fas fa-random"></i></button>
     </div>
    
     <div *ngIf = "albumList; then ifBlock; else elseBlock" ></div>
     <ng-template #ifBlock>
         <ul class="list-group">
-            <li class="list-group-item" *ngFor = "let list of albumList">{{list}}</li>
+            <li class="list-group-item" *ngFor = "let list of albumList"> {{list}}</li>
         </ul>
     </ng-template>
    
