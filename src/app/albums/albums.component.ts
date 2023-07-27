@@ -43,4 +43,10 @@ export class AlbumsComponent implements OnInit{
   albumFilter(album : Album[]) {
     this.albums = album;
   }
+
+  paginateParent($event : Album[]) {
+    this.albums = $event;
+    console.log(this.albums);
+    
+  }
 }

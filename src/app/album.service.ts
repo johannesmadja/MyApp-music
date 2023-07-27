@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ALBUMS, ALBUM_LISTS } from "./mock-albums";
 import { Album, List, SortAlbumCallback } from "./album";
+import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -92,6 +93,13 @@ export class AlbumService {
     return this._albums
       .slice(start, end)
       .sort((a : Album, b : Album) => b.duration - a.duration);
+  }
+
+  // subject pour la pagination informer les autres components
+  sendCurrentNumberPage = new Subject<number>();
+
+  currentPage(page : number) {
+    return this.sendCurrentNumberPage.next(page);
   }
 
 
