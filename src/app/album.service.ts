@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ALBUMS, ALBUM_LISTS } from "./mock-albums";
 import { Album, List, SortAlbumCallback } from "./album";
 import { Subject } from "rxjs";
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,11 @@ export class AlbumService {
   
   private _albums : Album[] = ALBUMS;
   private _albumList : List[] = ALBUM_LISTS;
+
+  /**
+   * Elle notifie aux abonnés la page actuelle
+   */
+  sendCurrentNumberPage = new Subject<number>;
 
   constructor() { }
 
@@ -77,7 +83,7 @@ export class AlbumService {
    * @param end number
    * @returns AlbumService
    */
-  limit(start : number, end : number) : AlbumService {
+  limit(start : number, end : number) : AlbumService {    
     this._albums = this._albums.slice(start, end);
     return this;
   }
@@ -91,16 +97,29 @@ export class AlbumService {
    */
   paginate(start : number, end : number) : Album[] {
     return this._albums
-      .slice(start, end)
-      .sort((a : Album, b : Album) => b.duration - a.duration);
+                      .slice(start, end)
+                      .sort((a : Album, b : Album) => b.duration - a.duration);
   }
 
-  // subject pour la pagination informer les autres components
-  sendCurrentNumberPage = new Subject<number>();
 
-  currentPage(page : number) {
-    return this.sendCurrentNumberPage.next(page);
+  /**
+   * Méthode qui renvoie le nombre d'album qu'on 
+   * aura par page
+   */
+  paginateNumberPage() : number {
+    return environment.numberPage;
   }
+
+
+  /**
+   * Méthode qui signale à tous les composants la page actuelle
+   * @param numberPage nombre de pas
+   * @returns number
+   */
+  currentPage (numberPage : number) {
+    return this.sendCurrentNumberPage.next(numberPage);
+  }
+
 
 
   

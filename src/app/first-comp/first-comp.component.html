@@ -1,0 +1,15 @@
+
+<!-- <div class="container">
+    <input type="text" [(ngModel)] = "texte">
+    <button (click) = "onButtonClick()"> click </button>
+</div> -->
+
+<div class="container">
+    <form  (ngSubmit) = "onSubmit(form)" #form = "ngForm">
+        <input name="text" ngModel required type="text" class="form-control" id="exampleInputtext1"
+            aria-describedby="textHelp" placeholder="Enter text">
+        <button  type="submit" class="btn btn-primary d-block mx-auto" [disabled] = "form.invalid">Submit</button>
+    </form>
+</div>
+
+<!--  -->

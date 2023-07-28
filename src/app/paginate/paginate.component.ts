@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component, Output, EventEmitter, OnInit} from '@angular/core';
 import { AlbumService } from "../album.service";
 import { Album } from '../album';
 
@@ -8,27 +8,32 @@ import { Album } from '../album';
   templateUrl: './paginate.component.html',
   styleUrls: ['./paginate.component.css']
 })
-export class PaginateComponent {
+export class PaginateComponent implements OnInit{
+  /** nombre total d'albums */
+  total : number = 0;
 
-  constructor(private Albumservice : AlbumService) {}
-  @Output() paginateAlbum  = new EventEmitter<Array<Album>>
+  /** nombre d'albums(s) par page (stocké dans les variables d'environnement) */
+  perPage : number;
 
-  /**
-   * Fonction qui renvoie le nombre d'album à afficher sur une page avec la pagination
-   * @param a index du premier album à renvoyer
-   * @param b index du dernier zlbum à renvoyer
-   */
-  paginateDisplay(a : number, b : number) {
-    const pagination = this.Albumservice.paginate(a, b);
-    this.paginateAlbum.emit(pagination);
+  /** nombre de boutons à générer */
+  numberPages : number = 0;
+
+  /** tableau  réunissant le label de chaque page */
+  pages : number[] = [];
+
+  constructor(private Albumservice : AlbumService) {
+    this.perPage = this.Albumservice.paginateNumberPage();
   }
 
-  previous() {
+  ngOnInit(): void {
+    this.total = this.Albumservice.count();
+    this.numberPages = Math.ceil(this.total / this.perPage);
+
+    for (let i = 1; i <= this.numberPages; i++) {
+      this.pages.push(i);
+    }
+
 
   }
 
-  next() {
-    
   }
- 
-}

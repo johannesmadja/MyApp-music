@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = "app-music"
+
+  valueSend !: string ;
+
+  parentReceive($event : string) {
+    this.valueSend = $event;
+    console.log("Parent : " + $event);
+  }
+
 }
 
 

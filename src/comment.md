@@ -104,3 +104,56 @@ if(indexTab[i] !== j) {
   tab.push()
 }
 ```
+
+## Les Observales Angular
+Ils sont utilisés lors de l'interaction avec un serveur
+
+* Obervable : produit | objet | message qui sera diffusé
+* Observer : l'élément qui souscrit pour un produit | Objet | message
+
+```ts
+  export class OpenCloseComponent implements OnInit{
+
+  ngOnInit(): void {
+    // On s'abonne à l'obervable
+      this.myObservable.subscribe((album) => {
+        console.log(album);
+        
+      });
+  }
+
+  // Création d'un observable à laquelle on passsera une fonction
+  /**
+   * La foncton s'appelle un (oberver) => {}) qui est de type observeur. 
+   * Tout ceci est le code à exécuté quand on récupère la donnée ou quand quelqu'un s'abonne (Subscriber)
+   * 
+   */
+  myObservable = new Observable((observer : Observer<string>) => {
+    console.log("Données disponibles");
+    // Nous allons à présent envoyez des données à l'observer
+    // setTimeOut(() => {observer.next("album 1")}, 1000)
+
+    setTimeout( () => {observer.next("album 1")}, 1000);
+    setTimeout( () => {observer.next("album 2")}, 2000);
+    setTimeout( () => {observer.next("album 3")}, 3000);
+    setTimeout( () => {observer.next("album 4")}, 4000);
+    setTimeout( () => {observer.next("album 5")}, 5000);
+    
+  });
+
+  isOpen : boolean = true;
+
+  toggle() {
+    this.isOpen = !this.isOpen;
+  }
+}
+
+// Option 2 : new Subject
+
+```
+
+## Paginate
+
+<nav aria-label = 'page navigation example'> Notifie aux lecteurs d'écrans l'état de la barre de navigatio
+
+* Créer un observable dans notre AlbumService

@@ -14,6 +14,8 @@ import { AlbumDescriptionComponent } from './album-description/album-description
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { OpenCloseComponent } from './open-close/open-close.component';
 import { PaginateComponent } from './paginate/paginate.component';
+import { FirstCompComponent } from './first-comp/first-comp.component';
+import { SecondCompComponent } from './second-comp/second-comp.component';
 
 
 /**
@@ -40,7 +42,9 @@ const albumsRoutes : Routes = [
     AlbumDescriptionComponent,
     PageNotFoundComponent,
     OpenCloseComponent,
-    PaginateComponent
+    PaginateComponent,
+    FirstCompComponent,
+    SecondCompComponent,
   ],
   imports: [
     BrowserModule,
