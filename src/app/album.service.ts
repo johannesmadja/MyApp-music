@@ -26,7 +26,7 @@ export class AlbumService {
    * @returns Album []
    */
   getAlbums() : Album[] { // Retourne tous les albums
-    return this._albums;
+    return this._albums.sort((a, b) => b.duration - a.duration);
   }
 
 
@@ -90,7 +90,7 @@ export class AlbumService {
 
 
   /**
-   * Fonction qui renvoie les tableau
+   * Fonction qui renvoie les albums ordonnés
    * @param start number
    * @param end number
    * @returns Album[]

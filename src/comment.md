@@ -157,3 +157,12 @@ Ils sont utilisés lors de l'interaction avec un serveur
 <nav aria-label = 'page navigation example'> Notifie aux lecteurs d'écrans l'état de la barre de navigatio
 
 * Créer un observable dans notre AlbumService
+
+- Explication : 
+* Nombre d'album total : total = 0
+* Nombre d'album à afficher par page : perPage = 0 
+* Combien de page pour rendre les éléments : Match.ceil() => entier supérieur le plus proche
+* Créer un tableau pour stocker le nombre de page
+* On bouclera ensuite sur le nombre de page pour générer des boutons de pagination qu'on stockera dans notre tableau
+
+* Créer un émetteur d'évènement qui signifie au parent le nombre d'élément à affiher

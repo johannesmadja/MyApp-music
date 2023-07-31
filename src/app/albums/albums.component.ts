@@ -18,7 +18,7 @@ export class AlbumsComponent implements OnInit{
 
   
   titlePage : string = "Page principale Albums Music";
-  title : string = "app music"
+  title : string = "app music";
   selectedAlbum !: Album | undefined;
   albums !: Album[];
   albumsOnInit : Album[] = ALBUMS;
@@ -28,10 +28,10 @@ export class AlbumsComponent implements OnInit{
   constructor(private AlbumService : AlbumService) {}
 
   ngOnInit() {
-    this.albums = this.AlbumService
-                                  .order((a : Album, b : Album) => b.duration - a.duration)
-                                  .limit(0, this.AlbumService.count())
-                                  .getAlbums(); // limit (0, this.AlbumService.count())                                        
+    this.albums = this.AlbumService.paginate(0, this.AlbumService.paginateNumberPage());
+                                  // .order((a : Album, b : Album) => b.duration - a.duration)
+                                  // .limit(0, this.AlbumService.count())
+                                  // .getAlbums(); // limit (0, this.AlbumService.count())                                        
   }   
   
 
@@ -49,5 +49,9 @@ export class AlbumsComponent implements OnInit{
 
   paginateParent($event : Album[]) {
     this.albums = $event;
+  }
+
+  onSetPaginate($event : {start : number, end : number}) {
+    this.albums = this.AlbumService.paginate($event.start, $event.end);
   }
 }
