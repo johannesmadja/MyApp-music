@@ -119,8 +119,4 @@ export class AlbumService {
   currentPage (numberPage : number) {
     return this.sendCurrentNumberPage.next(numberPage);
   }
-
-
-
-  
 }

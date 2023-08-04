@@ -1,24 +1,23 @@
 <div class="container principal">
   <nav class="navbar navbar-expand-lg navbar-light mb-1 bg-dark-subtle shadow rounded" >
-    <a class="navbar-brand ms-3" routerLink = "">{{ title }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink = "/">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link"  routerLink = "/login" routerLinkActive = "active" >Se connecter
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-      </ul>
+    <div class = "d-flex align-items-center">
+      <a class="navbar-brand ms-3" routerLink = "">{{ title }}</a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink = "/" routerLinkActive = "active">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link"  routerLink = "/login" routerLinkActive = "active">Se connecter
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+    <p>secondes : </p>
   </nav>
   <!-- La partie où sera rendu tous les enfants de ce composant -->
  

@@ -16,7 +16,7 @@ export class FirstCompComponent {
     texte : string = 'toto';
 
     onSubmit (form : NgForm) {
-        const Input = form.value['text']
+        const Input = form.value['text'];
         // Envoie d'une notification aux abonnés
         this.testService.sendData(Input);
     }
