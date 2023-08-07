@@ -37,6 +37,7 @@ export class AlbumDetailsComponent implements OnInit {
 
   play (album : Album) {
     this.onPlay.emit(album);
+    this.AlbumService.switchOn(album);
   }
 
   randomList() {

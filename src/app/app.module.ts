@@ -16,6 +16,7 @@ import { OpenCloseComponent } from './open-close/open-close.component';
 import { PaginateComponent } from './paginate/paginate.component';
 import { FirstCompComponent } from './first-comp/first-comp.component';
 import { SecondCompComponent } from './second-comp/second-comp.component';
+import { AudioPlayerComponent } from './audio-player/audio-player.component';
 
 
 /**
@@ -45,6 +46,7 @@ const albumsRoutes : Routes = [
     PaginateComponent,
     FirstCompComponent,
     SecondCompComponent,
+    AudioPlayerComponent,
   ],
   imports: [
     BrowserModule,

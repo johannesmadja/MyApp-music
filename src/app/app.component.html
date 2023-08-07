@@ -1,5 +1,5 @@
 <div class="container principal">
-  <nav class="navbar navbar-expand-lg navbar-light mb-1 bg-dark-subtle shadow rounded" >
+  <nav class="navbar navbar-expand-lg navbar-light mb-1 bg-dark-subtle shadow rounded justify-content-between" >
     <div class = "d-flex align-items-center">
       <a class="navbar-brand ms-3" routerLink = "">{{ title }}</a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -17,7 +17,7 @@
         </ul>
       </div>
     </div>
-    <p>secondes : </p>
+    <p *ngIf = "count"> Timers : {{count}} </p>
   </nav>
   <!-- La partie où sera rendu tous les enfants de ce composant -->
  
@@ -25,6 +25,6 @@
     <app-first-comp></app-first-comp>
     <app-second-comp></app-second-comp>
   </div>  -->
-
+  <app-audio-player></app-audio-player>
   <router-outlet></router-outlet>
 </div>

@@ -8,6 +8,9 @@ import { environment } from 'src/environment/environment';
   providedIn: 'root'
 })
 export class AlbumService {
+
+  subjectAlbum = new Subject<Album>();
+
   albumDuration !: Album[];
   ALBUMSCOPY !: Album[];
   
@@ -97,8 +100,8 @@ export class AlbumService {
    */
   paginate(start : number, end : number) : Album[] {
     return this._albums
-                      .slice(start, end)
-                      .sort((a : Album, b : Album) => b.duration - a.duration);
+                      .sort((a : Album, b : Album) => b.duration - a.duration)
+                      .slice(start, end);
   }
 
 
@@ -119,4 +122,31 @@ export class AlbumService {
   currentPage (numberPage : number) {
     return this.sendCurrentNumberPage.next(numberPage);
   }
+
+  /**
+   * Méthode qui permet de changer le status d'un album à "on"
+   * @param album : l'alblum dont le status doit passer à on
+   */  
+  switchOn( album : Album) {
+    this._albums.forEach(al => {
+      // Si l'album actuel est celui qu'on joue
+      if (al.id === album.id) {
+        // mettre son status à "on"
+        al.status = "on";
+        album.status = "on";
+      } else {
+        // Sinon mettre son status à "off"
+        al.status = "off"
+      }
+    });
+    // envoyer une notification à tous les abonnés
+    this.subjectAlbum.next(album);
+  }
+
+
+  /**
+   * Méthode qui permet de changer le status d'un album à "off"
+   * @param album : l'alblum dont le status doit passer à off
+   */
+  switchOff( album : Album) {}
 }
