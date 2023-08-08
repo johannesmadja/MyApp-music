@@ -24,8 +24,13 @@ export class SearchComponent implements OnInit{
 */
 
   onChangeEmit($event : string) {
-    const results = this.AlbumService.search($event) 
-    this.albumListFilter.emit(results);
+    this.AlbumService.search($event).subscribe({
+      next : (alb : Album[]) => {
+       if (alb.length > 0) { 
+        this.albumListFilter.emit(alb);
+      }
+      }
+    }) 
     this.word = " ";
 
   }

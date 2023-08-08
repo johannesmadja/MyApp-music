@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Album } from "../album";
-import { ALBUMS } from "../mock-albums";
+// import { ALBUMS } from "../mock-albums";
 import { AlbumService } from '../album.service';  
 
 
@@ -31,7 +31,11 @@ export class AlbumDetailsComponent implements OnInit {
   
   ngOnChanges()  {
     if (this.album) {
-      this.albumList = this.AlbumService.getAlbumList(this.album.id); 
+      this.AlbumService.getAlbumList(this.album.id)?.subscribe({
+        next : (currentObj) => {
+          this.albumList = currentObj
+        }
+      }); 
     }
   }
 

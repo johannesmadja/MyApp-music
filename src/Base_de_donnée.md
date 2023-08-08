@@ -23,3 +23,8 @@ SGBD : Un système de Gestion de Base de Données(SGBD) est un ensemble de logic
 RDBMS : Relationnal Data Base Management System (fr : Système de Gestion de Base de Données Relationnel - SGBDR)
 
 
+## Les types de requête
+
+* get
+* post : 
+* put : pour changer une ressource existante

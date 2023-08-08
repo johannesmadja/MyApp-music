@@ -17,6 +17,7 @@ import { PaginateComponent } from './paginate/paginate.component';
 import { FirstCompComponent } from './first-comp/first-comp.component';
 import { SecondCompComponent } from './second-comp/second-comp.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
+import { HttpClientModule } from "@angular/common/http";
 
 
 /**
@@ -51,8 +52,10 @@ const albumsRoutes : Routes = [
   imports: [
     BrowserModule,
     FormsModule, // Importation du module FormsModule
+    /** forRoot : Méthode utilisée pour définir les routes utilisées dans le module */
     RouterModule.forRoot(albumsRoutes),
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@ import { fadeInAnimation } from "../animation.module";
 
 import { Album } from "../album";
 import { AlbumService } from '../album.service';
-import { ALBUMS } from '../mock-albums';
+// import { ALBUMS } from '../mock-albums';
 
 @Component({
   selector: 'app-albums',
@@ -21,14 +21,20 @@ export class AlbumsComponent implements OnInit{
   title : string = "app music";
   selectedAlbum !: Album | undefined;
   albums !: Album[];
-  albumsOnInit : Album[] = ALBUMS;
+  // albumsOnInit : Album[] = ALBUMS;
   status : string | null = null;
   tag : string = "Play";
 
   constructor(private AlbumService : AlbumService) {}
 
   ngOnInit() {
-    this.albums = this.AlbumService.paginate(0, this.AlbumService.paginateNumberPage());
+    this.AlbumService
+                      .paginate(0, this.AlbumService.paginateNumberPage())
+                      .subscribe({
+                        next : (alb) => {
+                          this.albums = alb;
+                        }
+                      });
                                   // .order((a : Album, b : Album) => b.duration - a.duration)
                                   // .limit(0, this.AlbumService.count())
                                   // .getAlbums(); // limit (0, this.AlbumService.count())                                        
@@ -36,7 +42,11 @@ export class AlbumsComponent implements OnInit{
   
 
   onSelect(album : Album) {
-    this.selectedAlbum = this.AlbumService.getAlbum(album.id);
+  this.AlbumService.getAlbum(album.id)?.subscribe({
+    next : (a) => {
+      this.selectedAlbum = a;
+    }
+  });
   }
 
   playParent($event : Album) {
@@ -52,6 +62,10 @@ export class AlbumsComponent implements OnInit{
   }
 
   onSetPaginate($event : {start : number, end : number}) {
-    this.albums = this.AlbumService.paginate($event.start, $event.end);
+    this.AlbumService.paginate($event.start, $event.end).subscribe({
+      next : (pag) => {
+        this.albums = pag;
+      }
+    });
   }
 }
