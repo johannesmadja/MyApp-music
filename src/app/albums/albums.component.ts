@@ -6,6 +6,7 @@ import { fadeInAnimation } from "../animation.module";
 
 import { Album } from "../album";
 import { AlbumService } from '../album.service';
+import { ALBUMS } from '../mock-album';
 // import { ALBUMS } from '../mock-albums';
 
 @Component({
@@ -34,7 +35,9 @@ export class AlbumsComponent implements OnInit{
                         next : (alb) => {
                           this.albums = alb;
                         }
-                      });
+                      }); 
+                      
+                      
                                   // .order((a : Album, b : Album) => b.duration - a.duration)
                                   // .limit(0, this.AlbumService.count())
                                   // .getAlbums(); // limit (0, this.AlbumService.count())                                        

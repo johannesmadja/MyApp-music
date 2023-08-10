@@ -48,7 +48,7 @@ export class AlbumService {
    * @returns Album | undefined
    */
   getAlbum(id : string) : Observable<Album> | undefined  { // Retourne un album
-    return this.http.get<Album>(this._albumsUrl + "/" + id).pipe(
+    return this.http.get<Album>(this._albumsUrl + "/" + id) .pipe(
       map((album : Album) => album)
     );
   }
